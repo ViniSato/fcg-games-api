@@ -11,7 +11,6 @@
         public DateTime CriadoEm { get; set; }
         public DateTime? AtualizadoEm { get; set; }
 
-        public virtual ICollection<JogoUsuario> UsuariosQueAdquiriram { get; set; } = new List<JogoUsuario>();
         public virtual ICollection<Promocao> Promocoes { get; set; } = new List<Promocao>();
     }
 }

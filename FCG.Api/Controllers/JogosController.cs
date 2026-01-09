@@ -1,7 +1,6 @@
 ﻿using FCG.Api.Models.Requests;
 using FCG.Application.Interfaces;
 using FCG.Application.Exceptions;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using IJogoMapper = FCG.Api.Services.Mappers.Interfaces.IJogoMapper;
 
@@ -30,7 +29,6 @@ namespace FCG.Api.Controllers
             return Ok(response);
         }
 
-        [Authorize]
         [HttpGet("biblioteca")]
         public async Task<IActionResult> GetAll()
         {
@@ -39,7 +37,6 @@ namespace FCG.Api.Controllers
             return Ok(responses);
         }
 
-        [Authorize(Roles = "Administrador")]
         [HttpPost("cadastrar")]
         public async Task<IActionResult> Create([FromBody] JogoRequest request)
         {
@@ -51,7 +48,6 @@ namespace FCG.Api.Controllers
             return Ok();
         }
 
-        [Authorize(Roles = "Administrador")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] JogoRequest request)
         {
@@ -64,7 +60,6 @@ namespace FCG.Api.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Administrador")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

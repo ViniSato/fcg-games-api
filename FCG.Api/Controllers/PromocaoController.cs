@@ -1,7 +1,6 @@
 ﻿using FCG.Api.Models.Requests;
 using FCG.Api.Models.Responses;
 using FCG.Application.Exceptions;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using FCG.Api.Services.Mappers.Interfaces;
 using FCG.Application.Interfaces.Services;
@@ -21,7 +20,6 @@ namespace FCG.Api.Controllers
             _promocaoMapper = promocaoMapper;
         }
 
-        [Authorize(Roles = "Administrador")]
         [HttpPost("{jogoId}")]
         public async Task<IActionResult> Create(int jogoId, [FromBody] PromocaoRequest request)
         {
@@ -34,7 +32,6 @@ namespace FCG.Api.Controllers
             return Ok(response);
         }
 
-        [Authorize]
         [HttpGet("jogo/{jogoId}")]
         public async Task<IActionResult> GetByJogo(int jogoId)
         {
@@ -43,7 +40,6 @@ namespace FCG.Api.Controllers
             return Ok(responses);
         }
 
-        [Authorize(Roles = "Administrador")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

@@ -16,4 +16,9 @@
     <ProjectReference Include="..\FCG.Domain\FCG.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\Auth\" />
+    <Folder Include="Services\Auth\" />
+  </ItemGroup>
+
 </Project>
